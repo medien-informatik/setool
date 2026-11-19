@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mermaid Klassendiagramm-Editor</title>
+<link rel="stylesheet" href="mermaid-editor.css">
+</head>
+<body>
+<main>
+  <nav>
+    <a href="mermaid-seq.html">Sequenzdiagramm</a>
+    <a href="mermaid-class.html" aria-current="page">Klassendiagramm</a>
+    <a href="mermaid-package.html">Paketdiagramm</a>
+  </nav>
+  <h1>Mermaid Klassendiagramm-Editor</h1>
+  <p class="sub">Klassendiagramm in Mermaid-Syntax eingeben und rendern.</p>
+
+  <div class="editor">
+    <div class="gutter" id="gutter">1</div>
+    <div class="code">
+      <pre id="highlight" aria-hidden="true"></pre>
+      <textarea id="input" spellcheck="false" autocomplete="off" autocapitalize="off" aria-label="Mermaid-Code">
+classDiagram
+    direction TB
+    %% Beispiel: Bestellsystem
+
+    class Bezahlbar {
+        <<interface>>
+        +bezahlen(betrag: double) bool
+    }
+
+    class Kunde {
+        -String name
+        -String email
+        +bestellen() Bestellung
+    }
+
+    class Bestellung {
+        -int nummer
+        -Date datum
+        +summe() double
+    }
+
+    class Position {
+        -int menge
+        +preis() double
+    }
+
+    class Artikel {
+        <<abstract>>
+        #String bezeichnung
+        #double preis
+    }
+
+    class Buch {
+        -String isbn
+    }
+
+    Kunde "1" --> "*" Bestellung : gibt auf
+    Bestellung "1" *-- "1..*" Position : enthält
+    Position "*" --> "1" Artikel
+    Artikel <|-- Buch
+    Bestellung ..|> Bezahlbar</textarea>
+    </div>
+  </div>
+
+  <div class="toolbar">
+    <button class="primary" id="renderBtn">Render</button>
+    <button id="copyBtn">Copy to Clipboard</button>
+    <span class="hint">Strg+Enter = Render</span>
+    <span class="status" id="status"></span>
+  </div>
+
+  <div class="output" id="output"></div>
+</main>
+
+<script src="vendor/mermaid.min.js"></script>
+<script src="mermaid-editor.js" data-lang="class"></script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mermaid Sequenzdiagramm-Editor</title>
+<link rel="stylesheet" href="mermaid-editor.css">
+</head>
+<body>
+<main>
+  <nav>
+    <a href="mermaid-seq.html" aria-current="page">Sequenzdiagramm</a>
+    <a href="mermaid-class.html">Klassendiagramm</a>
+    <a href="mermaid-package.html">Paketdiagramm</a>
+  </nav>
+  <h1>Mermaid Sequenzdiagramm-Editor</h1>
+  <p class="sub">Sequenzdiagramm in Mermaid-Syntax eingeben und rendern.</p>
+
+  <div class="editor">
+    <div class="gutter" id="gutter">1</div>
+    <div class="code">
+      <pre id="highlight" aria-hidden="true"></pre>
+      <textarea id="input" spellcheck="false" autocomplete="off" autocapitalize="off" aria-label="Mermaid-Code">
+sequenceDiagram
+    autonumber
+    %% Beispiel: Login-Ablauf
+    actor U as User
+    participant B as Browser
+    participant S as Server
+    participant DB as Datenbank
+
+    U->>B: Zugangsdaten eingeben
+    B->>+S: POST /login
+    S->>+DB: Benutzer suchen
+    DB-->>-S: Datensatz
+    alt Passwort korrekt
+        S-->>B: 200 OK + Token
+        Note right of B: Token speichern
+    else Passwort falsch
+        S--xB: 401 Unauthorized
+    end
+    deactivate S
+    B-->>U: Ergebnis anzeigen</textarea>
+    </div>
+  </div>
+
+  <div class="toolbar">
+    <button class="primary" id="renderBtn">Render</button>
+    <button id="copyBtn">Copy to Clipboard</button>
+    <span class="hint">Strg+Enter = Render</span>
+    <span class="status" id="status"></span>
+  </div>
+
+  <div class="output" id="output"></div>
+</main>
+
+<script src="vendor/mermaid.min.js"></script>
+<script src="mermaid-editor.js" data-lang="sequence"></script>
+</body>
+</html>
