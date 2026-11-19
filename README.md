@@ -36,6 +36,8 @@ mermaid-editor.js      Highlighting-Regeln je Diagrammtyp, Render, Copy
 vendor/mermaid.min.js  Mermaid 11.4.1 (MIT, siehe vendor/mermaid.LICENSE)
 ```
 
+Nach Änderungen an `mermaid-editor.css`/`.js` die Versionsnummer `?v=…` in den HTML-Dateien erhöhen, damit Browser nicht die alte Datei aus dem Cache nehmen.
+
 Ein neuer Diagrammtyp braucht eine Regel-Liste in `LANGS` (`mermaid-editor.js`) und eine HTML-Seite mit `<script src="mermaid-editor.js" data-lang="…">`.
 
 ## Veröffentlichung (GitHub Pages)
