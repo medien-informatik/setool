@@ -69,3 +69,6 @@ button:hover { border-color: var(--accent); }
   text-align: left; background: var(--err-bg); color: var(--err-text);
   padding: 12px; border-radius: 6px; white-space: pre-wrap; font-family: Consolas, monospace; font-size: .85rem;
 }
+
+/* ?nav=0 */
+.no-nav nav { display: none; }

@@ -12,6 +12,8 @@ Browser-Editoren für UML-Diagramme mit [Mermaid](https://mermaid.js.org/) – m
 
 Bedienung: Code eingeben, **Render** klicken (oder `Strg+Enter`). `Tab` rückt um 4 Leerzeichen ein.
 
+URL-Parameter `nav`: `?nav=0` blendet die Navigation oben aus (z. B. zum Einbetten per `<iframe>`), `?nav=1` oder ohne Parameter wird sie angezeigt. Beispiel: `mermaid-seq.html?nav=0`
+
 ## Lokal nutzen
 
 Die Seiten funktionieren offline – einfach `index.html` im Browser öffnen. Mermaid liegt lokal unter `vendor/`.
