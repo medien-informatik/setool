@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SE-Tools – Mermaid-Editoren</title>
+<meta name="description" content="Browser-Editoren für UML-Diagramme mit Mermaid: Sequenz-, Klassen- und Paketdiagramme.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="mermaid-editor.css">
+<style>
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-top: 24px; }
+  .card {
+    display: block; padding: 20px; border-radius: 8px; text-decoration: none; color: var(--text);
+    background: var(--panel); border: 1px solid var(--border); transition: border-color .15s, transform .15s;
+  }
+  .card:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .card h2 { margin: 0 0 6px; font-size: 1.1rem; color: var(--accent); }
+  .card p { margin: 0; color: var(--muted); font-size: .9rem; }
+  footer { margin-top: 40px; color: var(--muted); font-size: .8rem; }
+  footer a { color: inherit; }
+</style>
+</head>
+<body>
+<main>
+  <h1>SE-Tools: Mermaid-Editoren</h1>
+  <p class="sub">UML-Diagramme im Browser schreiben und rendern – mit Syntax-Highlighting, ohne Installation.</p>
+
+  <div class="cards">
+    <a class="card" href="mermaid-seq.html">
+      <h2>Sequenzdiagramm</h2>
+      <p>Teilnehmer, Nachrichten, Aktivierungen, alt/loop/opt-Blöcke.</p>
+    </a>
+    <a class="card" href="mermaid-class.html">
+      <h2>Klassendiagramm</h2>
+      <p>Klassen, Attribute, Methoden, Vererbung, Assoziationen, Kardinalitäten.</p>
+    </a>
+    <a class="card" href="mermaid-package.html">
+      <h2>Paketdiagramm</h2>
+      <p>Pakete und Abhängigkeiten (als Flowchart mit subgraphs).</p>
+    </a>
+  </div>
+
+  <footer>
+    Rendering mit <a href="https://mermaid.js.org/">Mermaid</a> 11.4.1 (MIT-Lizenz, <a href="vendor/mermaid.LICENSE">Lizenztext</a>).
+  </footer>
+</main>
+</body>
+</html>
